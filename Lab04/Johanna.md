@@ -12,8 +12,20 @@ The text file had the following content:
 ```
 To start, one could either import the text file by reading it like a file in the code, or just copy its content and insert it like a variable. As the content was not too long, the latter option was chosen. Then, it was necessary to have a variable to catch the flag, called `flag`. 
 
-In the provided code snippet, the secret number is added to the flag's characters after it is turned into an integer representing the characters Unicode. In every interation, the secret number is increased by one. In order to decrypt the output, we simply wrote a code which did the operations in the opposite order, starting by subtracting the secret number, then followed by the other operations. 
+In the provided code snippet, the secret number is added to the flag's characters after it is turned into an integer representing the characters Unicode. In every interation, the secret number is increased by one. In order to decrypt the output, we simply wrote a code which did the operations in the opposite order, starting by subtracting the secret number, then followed by the other operations: 
 
-![image](https://user-images.githubusercontent.com/72946914/161011219-586ece42-dd30-41d7-a79f-c761aff7a0de.png)
+![image](https://user-images.githubusercontent.com/72946914/161015249-33c331e8-f7e8-464b-90b5-a983284a92b8.png)
 
-
+Having `secret_number = 0`, we consentrated around the first six integers provided by printing `real_int`, since we knew that the flag would start with `IKT449`: 
+```python
+180
+182
+191
+159
+159
+164 
+```
+The decimal value of `I` is 73, thus, subtracting that number from the number we got, resulted in 107. Entering 107 as the secret number, gave the following output: 
+```python
+Flag:  IKT449{r0tate_m3_L1ke_ceazz4r_w1sh_h3_d1d}
+```
