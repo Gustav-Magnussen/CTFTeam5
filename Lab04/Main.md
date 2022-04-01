@@ -143,11 +143,11 @@ The decimal value of `I` is 73; thus, subtracting that number from the number we
 ## PY - 02
 > *One secret might not be enough, but how about two?*
 
-The task describtion provided us with the same material here; a code snippet and a text file with the output. This time, the result was a list consisting of the following integers: 
+The task description provided us with the same material here; a code snippet and a text file with the output. This time, the result was a list consisting of the following integers: 
 ```python
 111,88,37,87,81,90,81,97,81,96,81,90,91,91,81,90,81,102,87,88,34,101,43,38,61,102,37,37,94,87,102,97,102,86,83,102,89,91,100,87,102,34,81,94,88,90,109,38,70,59
 ```
-After reading through the below code snippet, we got an idea of what was happening. First, all the flag's characters are turned into their corresponding Unicode character before the value of `secret_number_1` was added. Then the encrypted list, `enc`, is flipped around before every other element is added to a new list, `cne2`. Then the remaining elements are added to `cne2`, as the list's second half. At last, the numbers are subtracted with `secret_number_2`. 
+After reading through the below code snippet, we got an idea of what was happening. First, all the flag's characters are turned into their corresponding Unicode character, as decimal numbers, before the value of `secret_number_1` was added. Then the encrypted list, `enc`, is flipped around before every other element is added to a new list, `cne2`. Then the remaining elements are added to `cne2`, as the list's second half. At last, the numbers are subtracted with `secret_number_2`. 
 
 ![image](https://user-images.githubusercontent.com/72946914/161036498-dcd84999-a449-4877-bcd4-4e55bce35e75.png)
 
