@@ -14,7 +14,7 @@ The text file had the following content:
 ```
 We saved the output in a variable with the same name. It was also necessary to have a variable to catch the flag, called `flag`. 
 
-In the provided code snippet, the secret number is added to the flag's characters after turning it into an integer representing the Unicode characters. Then the integer is turned into the corresponding hex decimal value. In every interaction, the secret number is increased by one. To decrypt the output, we wrote a code that did the operations in the opposite order, starting by subtracting the secret number, then followed by the other operations: 
+In the provided code snippet, the secret number is added to the flag's characters after turning it into an integer representing the Unicode characters. Then the integer is turned into the corresponding hex decimal value. In every iteration, the secret number is increased by one. To decrypt the output, we wrote a code that did the operations in the opposite order, starting by subtracting the secret number, then followed by the other operations: 
 
 ![image](https://user-images.githubusercontent.com/72946914/161015249-33c331e8-f7e8-464b-90b5-a983284a92b8.png)
 
@@ -70,7 +70,7 @@ Result:  [(59, 61), (70, 38), (38, 43), (109, 101), (90, 34), (88, 88), (94, 87)
 Flag:  ;=F&&+meZ"XX^WQf"QfZWQd[[[YZfQS`VQfaaQfZWQ^W%%%Xfo
 ```
 
-Like the previous task, we want the first number in the list `Result` to be 73, which equals the letter `I`. Since 73 - 59 = 14, we knew we someplace had to add 14 to either of the secret numbers. Trying `secret_number_2 = 14` did not change much, but setting `secret_number_1 = -14` (minus since this value is subtracted from the elements in the list, and we want it added), we obtained the flag: 
+Like the previous task, we want the first number in the list `Result` to be 73, which equals the letter `I`. Since 73 - 59 = 14, we knew we had to add 14 to either of the secret numbers. Trying `secret_number_2 = 14` did not change much, but setting `secret_number_1 = -14` (negative 14, since `secret_number_1` is subtracted from the elements in the list, and we want it added), we obtained the flag: 
 
 ```python
 Flag:  IKT449{sh0ffle_t0_the_riiight_and_too_the_le333ft}
