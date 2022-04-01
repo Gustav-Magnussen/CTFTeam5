@@ -2,6 +2,8 @@
 
 ![oppgave1-lab4](https://user-images.githubusercontent.com/46780028/160909838-0c82df23-ca60-4cc9-8aec-ce8d6945b3a7.PNG)
 
+> Make a connection to the machine at the correct port and find the flag in flag.txt 
+
 In order to establish a connection to the machine and the correct port, we use NetCat to connect to the port. This is done by using the command `nc`, followed by the target ip and the port to be used.
 
 To be able to confirm that the port has been scanned and that the target machine has been accessed, we use the command `whoami` to be able to see who we are and which privileges can be used. Then `ls` is used to list the available files, including `flag.txt`.
