@@ -45,7 +45,7 @@ After reading through the below code snippet, we got an idea of what was happeni
 
 This time it is not as simple as flipping the code around, like in the previous task. We are dealing with two unknown numbers and a flag that has been completely turned around and twisted. 
 
-For starters, we defined the two variables `secret_number_1` and `secret_number_2` to equal zero, making it easier to understand which output we are dealing with before adding arbitrary values to the variables. To start where the code snippet left off, we iterated through the output elements and subtracted `secret_number_2`. 
+For starters, we defined the two variables `secret_number_1` and `secret_number_2` to equal zero, making it easier to understand which output we are dealing with before adding arbitrary values to the variables. To start where the code snippet left off, we iterated through the output elements and added `secret_number_2`. 
 
 ![image](https://user-images.githubusercontent.com/72946914/161040129-c89f599c-347c-43ec-b0ec-7a1ffcf2d023.png)
 
