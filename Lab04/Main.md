@@ -1,3 +1,52 @@
+## 4002 - secret
+> I forgot the password to my backdoor running at port 4002, can you find it for me?
+
+Trying to execute the attached binary provides the greater than symbol, `>`. This seems to ask for user input and upon entering something the binary responds with `no`. 
+
+![image](https://user-images.githubusercontent.com/59768512/161137298-4634d986-ba55-4802-a910-759d42c359c5.png)
+
+Most likely when prompted to enter something a correct string or password has to be entered. Using the strings command in Linux on the binary reveals any strings within the file. One specific string stands out; `s00p3r_secret_k3ys`. This might be the needed password.
+
+![image](https://user-images.githubusercontent.com/59768512/161137203-af194da4-97c0-48c8-b381-caa9350325b0.png)
+
+Using this password as the user input gives a shell on the machine.
+
+![image](https://user-images.githubusercontent.com/59768512/161138275-cdade4b8-e50c-4331-ad1e-cec6f10e044f.png)
+
+Doing this on the attached port provides a shell on the machine and looking in the current directory shows a `flag.txt` file that contains the flag.
+
+![image](https://user-images.githubusercontent.com/59768512/161138897-826fd8a9-b430-427e-bca5-a9636aef8f3a.png)
+
+>**Flag:`IKT449{nice_l00gin}`**
+
+## 4004 - INTelligence
+> I have moved from passwords to PINs for my backdoors, is it still secure though?
+
+Running the attached file seems to ask for a PIN code and return `no` if the PIN code is wrong.
+
+![image](https://user-images.githubusercontent.com/59768512/158981968-c814230a-f6c9-4b50-b2a9-14f72a1b6ee6.png)
+
+Opening the file in IDA Freeware and generating pseudocode for the main functions gives a bit of understanding of what happens when running the binary.
+
+![image](https://user-images.githubusercontent.com/59768512/158981863-611d4047-8441-4754-8e95-3e1637705216.png)
+
+The `fgets(s, 30, stdin9;` seems to take the user input and puts it into the variable `s`, while the variable `&v5[13]` seems to be what it is compared to. Renaming the `s` variable to `user-input`  and the `v5` to `password` will help with readability. Looking at lines 16 and 17, the main function calls the library function `strcpy` and adds the integer values to the `password` and `src` variables. At this point in the code, the `password` variable is `123454652311` and the `src` variable is `22`.
+
+![image](https://user-images.githubusercontent.com/59768512/158984054-94d38097-f91a-4ddf-8e00-e37ae5ebd863.png)
+
+Looking at lines 20 and 21 the library function `strcat` gets called and adds the string of the `src` variable to the `password` variable and later the string of the `password` variable as well. This means that the final `&password[13]` variable contains the string `22123454652311` which should be the pin.
+
+![image](https://user-images.githubusercontent.com/59768512/158984306-202f5e3a-22e2-4a8c-be52-188914d4742a.png)
+
+Using this pin confirms this theory and gives shell. 
+
+![image](https://user-images.githubusercontent.com/59768512/161140284-e93681a6-2b31-4d91-865f-6ef0978d959b.png)
+
+Using this pin on the attached port gives a shell on the machine in the directory where the `flag.txt` file is located.
+
+![image](https://user-images.githubusercontent.com/59768512/161140454-0d8cb553-6f7f-4aa2-aaab-27ffdb1f713d.png)
+
+>**Flag:`IKT449{P1N_RIGHT_UP_T1s_c5all}`**
 
 ## PY - 01
  > *This is a bit rotte(n)*
