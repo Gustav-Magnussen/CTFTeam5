@@ -1,8 +1,10 @@
 ## 4001 - Connection Established
 
+> Make a connection to the machine at the correct port and find the flag in flag.txt 
+
 ![oppgave1-lab4](https://user-images.githubusercontent.com/46780028/160909838-0c82df23-ca60-4cc9-8aec-ce8d6945b3a7.PNG)
 
-> Make a connection to the machine at the correct port and find the flag in flag.txt 
+
 
 In order to establish a connection to the machine and the correct port, we use NetCat to connect to the port. This is done by using the command `nc`, followed by the target ip and the port to be used.
 
@@ -36,6 +38,7 @@ Doing this on the attached port provides a shell on the machine and looking in t
 
 ## 4003 - All Strings Attached
 
+> I forgot the password to my backdoor again.. But I have added some additional obfuscation and false-strings since last time. Could you still help me get in?
 This task includes the reversing of a binary file called task3. Running this file displays the greater than symbol, `>`, and seems to ask for user input. Giving user input seems to make the code response with `00ps_d1d_i_m444k33-3rrrr_-it_h4rd_with_ErrR0r-str11nnnzno`. 
 
 ![image](https://user-images.githubusercontent.com/59768512/161131323-031f6bca-855f-4ad2-9004-533cee3a3681.png)
