@@ -8,6 +8,8 @@ To be able to confirm that the port has been scanned and that the target machine
 
 Finally, "cat" is used on `flag.txt` file to open it, thereby revealing the flag.
 
+Flag: `IKT449{eaarlyyy_m000rr0r0rning}`
+
 
 ## 4003 - All Strings Attached
 
