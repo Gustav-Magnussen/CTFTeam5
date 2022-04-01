@@ -117,9 +117,8 @@ Having `secret_number = 0`, we concentrated around the first six integers provid
 164 
 ```
 The decimal value of `I` is 73; thus, subtracting that number from the number we got resulted in 107. Entering 107 as the secret number gave the following output: 
-```python
-Flag:  IKT449{r0tate_m3_L1ke_ceazz4r_w1sh_h3_d1d}
-```
+
+>**Flag:`IKT449{r0tate_m3_L1ke_ceazz4r_w1sh_h3_d1d}`**
 
 ## PY - 02
 > *One secret might not be enough, but how about two?*
@@ -161,9 +160,7 @@ Flag:  ;=F&&+meZ"XX^WQf"QfZWQd[[[YZfQS`VQfaaQfZWQ^W%%%Xfo
 
 Like the previous task, we want the first number in the list `Result` to be 73, which equals the letter `I`. Since 73 - 59 = 14, we knew we had to add 14 to either of the secret numbers. Trying `secret_number_2 = 14` did not change much, but setting `secret_number_1 = -14` (negative 14, since `secret_number_1` is subtracted from the elements in the list, and we want it added), we obtained the flag: 
 
-```python
-Flag:  IKT449{sh0ffle_t0_the_riiight_and_too_the_le333ft}
-```
+>**Flag:`IKT449{sh0ffle_t0_the_riiight_and_too_the_le333ft}`**
 
 
 
