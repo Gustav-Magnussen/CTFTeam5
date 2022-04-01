@@ -1,5 +1,6 @@
 
 ## PY - 01
+ > *This is a bit rotte(n)*
 
 The task provided a code snippet and a text file with the output after running the code with a secret input, which was the flag. To find the flag, it was necessary to analyze the code carefully. 
 
@@ -32,6 +33,7 @@ Flag:  IKT449{r0tate_m3_L1ke_ceazz4r_w1sh_h3_d1d}
 ```
 
 ## PY - 02
+> *One secret might not be enough, but how about two?*
 
 The task describtion provided us with the same material here; a code snippet and a text file with the output. This time, the result was a list consisting of the following integers: 
 ```python
