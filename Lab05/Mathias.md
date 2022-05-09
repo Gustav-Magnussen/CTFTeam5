@@ -38,3 +38,7 @@ When the cronjob automatically runs the `run_files.sh` which runs the `exploit.p
 
 ![image](https://user-images.githubusercontent.com/70077872/167413710-d34f73d1-0c22-4cb5-b303-1a3cb982bb11.png)
 
+We can then collect the flag:
+
+![image](https://user-images.githubusercontent.com/70077872/167413907-7375442e-0738-4ab0-abaf-72f33731a871.png)
+
