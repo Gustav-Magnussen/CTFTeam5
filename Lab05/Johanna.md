@@ -5,3 +5,10 @@
 
 Vet ikke om vi kommer til å bruke det, men her ser man at han bruker reverse shell flere ganger, kanskje for å oppnå user 
 ![image](https://user-images.githubusercontent.com/72946914/166972379-88812d98-6355-406f-83b1-79743195010c.png)
+
+
+Oppgave 3
+
+https://www.drupal.org/project/codefilter/releases/8.x-1.x-dev
+
+last opp modulen 
