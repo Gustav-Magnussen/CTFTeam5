@@ -36,5 +36,5 @@ A common attack vector would be to execute a python file that runs a reverse she
 
 When the cronjob automatically runs the `run_files.sh` which runs the `exploit.py` file, we get a connection using `nc -nlvp 9995` for listening on any incoming connections:
 
-![image](https://user-images.githubusercontent.com/70077872/167413610-fabd9a39-cfb7-4b8f-9a89-38e273cd76f2.png)
+![image](https://user-images.githubusercontent.com/70077872/167413710-d34f73d1-0c22-4cb5-b303-1a3cb982bb11.png)
 
