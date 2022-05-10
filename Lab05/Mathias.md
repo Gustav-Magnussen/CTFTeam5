@@ -7,13 +7,13 @@ The Drupal version is Drupal 9:
 
 
 
+# Task 3
 
 
+![image](https://user-images.githubusercontent.com/70077872/167573879-1302944a-d324-45a6-800e-147cb45be604.png)
 
-![image](https://user-images.githubusercontent.com/70077872/164681966-e03a50e1-90cf-4c51-b440-9ac737f28760.png)
 
-
-![image](https://user-images.githubusercontent.com/70077872/166906144-583269d0-9c37-4ebc-8404-3d39e7c0de05.png)
+![image](https://user-images.githubusercontent.com/70077872/167573750-8dca4946-dd94-4f2d-8923-ecbda7b62a48.png)
 
 
 ![image](https://user-images.githubusercontent.com/70077872/167573128-1848a4ee-8881-4bbb-96e2-9aabb47cfe50.png)
