@@ -24,7 +24,7 @@ Navigating to the users profile information, we located the flag.
 
 We already knew that we had to use the technique of reverse shell to get interactive access to www-data, which also could be seen in the logs from Kibana. By investigating the hits from the previous task, we also saw that the Drupal version running at this site was Drupal 9. 
 
-With a quick Google search at "drupal 9 reverse shell" we found several websites explaining the way forward for carrying out this attack. Apparently, several Drupal versions are vulnerable to remote code execution due to an insecure use of `unserialize()`. One of the sites we found [(link)](https://www.sevenlayers.com/index.php/257-drupal-8-to-reverse-shell) provided us with a well-explained step-by-step guide which we benefitted from. 
+With a quick Google search at "drupal 9 reverse shell" we found several websites explaining the way forward for carrying out this attack. Apparently, several Drupal versions are vulnerable to remote code execution due to an insecure use of `unserialize()` [(source)](https://vk9-sec.com/drupal-7-x-module-services-remote-code-execution/). One of the sites we found [(link)](https://www.sevenlayers.com/index.php/257-drupal-8-to-reverse-shell) provided us with a well-explained step-by-step guide which we benefitted from. 
 
 The guide describes how one can exploit the use of modules in Drupal by inserting code into a `.module` file. At Drupal's own website we downloaded a random module compatible with Drupal 9, in this case called *codefiler*. 
 
