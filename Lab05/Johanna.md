@@ -10,13 +10,14 @@ When starting looking through some of them, we noticed that several of them trie
  ![image](https://user-images.githubusercontent.com/72946914/167696514-2b4ac726-2db8-4f0f-b37b-3dca1585a008.png)
 
 Three different passwords are tried by the attacker, and most likely his last attempt was the successful one. By checking the `http.response` message in this record, we could inndeed see that the user was redirected to `http://10.13.374/user/1?check_logged_in=1`, indicating that the attempt was successful. 
+![image](https://user-images.githubusercontent.com/72946914/167710984-476f3164-8e7f-4858-a15c-86fac3a04cf3.png)
 
 Our thought got confirmed when entering the username *god* and the password *password1* and got successfully logged in. 
 ![image](https://user-images.githubusercontent.com/72946914/164683204-efd1c930-bdf7-4b6b-931f-da415ef65e74.png)
 
 Navigating to the users profile information, we located the flag. 
 
-![image](https://user-images.githubusercontent.com/72946914/164683266-c8d87f3d-890f-48b5-ac09-b87d4565be54.png)
+![image](https://user-images.githubusercontent.com/72946914/167711169-60189d5c-6df1-491f-8c19-5738fe0c1425.png)
 
 **`Flag: IKT449{admin_access=god}`**
 
