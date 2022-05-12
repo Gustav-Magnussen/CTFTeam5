@@ -41,7 +41,7 @@ To find the total amount of unique passwords tried during the brute force attack
 
 ![B2](https://user-images.githubusercontent.com/59768512/151540063-dbbc6310-1125-4f41-9ff3-fe896770a84d.PNG)
 
->**Flag`IKT449{}`**
+>**Flag`IKT449{671}`**
 
 ### Bruteforce Tool
 >*From the logs one can conclude that a brute force has taken place. What tool has been used to perform this attack? (all lowercase)*
