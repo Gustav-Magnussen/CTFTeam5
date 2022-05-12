@@ -46,7 +46,7 @@ To find the total amount of unique passwords tried during the brute force attack
 ### Bruteforce Tool
 >*From the logs one can conclude that a brute force has taken place. What tool has been used to perform this attack? (all lowercase)*
 
-To find out what type of tool was used to perform the brute force attack the phrase `password` was searched in Elastic. This resulted in several entries where the phrase `Incorrect username or password` was present. Expanding one of these entries and looking at the `user-agent.original` field shows that a tool called `wpscan` is used, which is a WordPress brute-forcing tool.
+To find out what type of tool was used to perform the brute force attack the phrase `password` was searched in Elastic. This resulted in several entries where the phrase `Incorrect username or password` was present. Expanding one of these entries and looking at the `user-agent.original` field shows the user agent used to access the webserver. The value present within this field is `WPScan v3.8.20` and a link to [WPScan](https://wpscan.com/wordpress-security-scanner), which is a security scanner for WordPress which has brute-forcing capabilities.
 
 ![B1](https://user-images.githubusercontent.com/59768512/151540034-fc6fc174-c4ee-4a93-9d71-f642c7939536.PNG)
 >**Flag`IKT449{wpscan}`**
@@ -199,11 +199,12 @@ Then, entering this timeframe into the Dashboard, and choosing the specified por
 ### Admin Password
 >*What is the correct password for the admin account?*
 
-By searching in Elastic for `http.response.status_code:200 and response:isAdmin` we are able to see the entries where the status code for the http response is `200 OK` and where the `isAdmin()` is set.
+By searching in Elastic for `http.response.status_code:200 and response:isAdmin` we can see the entries where the status code for the http response is `200 OK` and where `isAdmin` is set. When a website sends a request and the return status code is `200 OK`, the request is successful. When `isAdmin` is set we know that the user account is in use. This means that when both of these values are filtered from we know that a successful request has been made and that the account used is the admin account. This filter only gives us one entry:
+
 
 ![Admin Password](https://user-images.githubusercontent.com/59768512/151539645-a41a5da4-66f4-4923-8bc8-41a1de78115b.PNG)
 
-Expanding this entry we can see that the admin password is *purple1*.
+Expanding this entry we can see that the admin password is `purple1`.
 
 ![Admin Password2](https://user-images.githubusercontent.com/59768512/151539614-6bda64cf-6c50-4811-9c67-4a50b636156b.PNG)
 
