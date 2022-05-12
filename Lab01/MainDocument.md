@@ -1,7 +1,5 @@
 # CTFTeam5
 
->**Flag`IKT449{eaarlyyy_m000rr0r0rning}`**
-
 ## Introduction
 
 >*The attack occured from Jan 8, 2022 @ 23:55:00.000 to Jan 9, 2022 @ 00:10:00.000... [truncated]*
@@ -57,11 +55,11 @@ To find out what type of tool was used to perform the brute force attack the phr
 
 >*What is the content of the _id field where the correct password was guessed from brute-forcing?*
 
-We previously found out that the password for the admin user was "purple1" (from Admin Password). To find the "id" field in which the correct username was found, we searched for "purple1" and looked at the packet. This was done since the system most likely accepts the correct password and gives the successful message back in the same packet. From there, the correct answer is `ObjrO34BeTOdFhttNk4J`:
+We previously found out that the password for the admin user was *purple1* (from Admin Password). To find the `id` field in which the correct username was found, we searched for *purple1* and looked at the packet. This was done since the system most likely accepts the correct password and gives the successful message back in the same packet. From there, the correct answer is `ObjrO34BeTOdFhttNk4J`:
 
 ![bilde](https://user-images.githubusercontent.com/70077872/149674201-88ff335d-3b7f-4bf3-892c-d52e6e6fc5cd.png)
 
-This can be verified later in the packet since the variable "isAdmin" returns a boolean value of "1", meaning the Admin password was correct:
+This can be verified later in the packet since the variable `isAdmin` returns a boolean value of `1`, meaning the Admin password was correct:
 
 ![bilde](https://user-images.githubusercontent.com/70077872/149674301-1cf71a85-5fea-4175-a3c6-8e0c84467359.png)
 >**Flag`IKT449{ObjrO34BeTOdFhttNk4J}`**
@@ -102,7 +100,7 @@ As this is still providing a lot of entries in the logs and expanding the entrie
 
 >*What version of firefox is the attacker using? (two digits)*
 
-Since we previously know that the attacker's IP is `10.13.37.5`, we searched for `firefox` within the search field. Additionally, to filter out the attacker's agent, we added a filter with `source.ip.keyword: 10.13.37.5`. This yields several results, where it is apparent that the Firefox version is `91`:
+Since we previously know that the attacker's IP is `10.13.37.5`, we searched for `firefox` within the search field. Additionally, to filter out the attacker's agent, we added a filter with `source.ip.keyword: 10.13.37.5`. This yields several results, where it is apparent that the Firefox version is 91:
 
 ![bilde](https://user-images.githubusercontent.com/70077872/151168512-5e94022f-3351-4515-af98-a60197222131.png)
 >**Flag`IKT449{91}`**
@@ -114,13 +112,13 @@ Since we previously know that the attacker's IP is `10.13.37.5`, we searched for
 
 >*What framework is used to host the site running on port 80 on the victim? (all lowercase)*
 
-As found in Bruteforce Tool, the tool to perform the scanning was `wp-scan`. After researching WP-scan, it was apparent that it is used for brute-forcing the WordPress framework's login page. As such, the underlying framework running on port 80 is WordPress.
+As found in Bruteforce Tool, the tool to perform the scanning was wp-scan. After researching wp-scan, it was apparent that it is used for brute-forcing the WordPress framework's login page. As such, the underlying framework running on port 80 is WordPress.
 >**Flag`IKT449{wordpress}`**
 
 ### Themes
 >*The attacker replaced the 404.php page of one of the themes with a reverse shell. Which theme was compromised? (all lowercase, one word)*
 
-It was quickly discovered that the page in question was in fact a WordPress site.  By entering "theme and 404" as a search word, we were left with 16 hits. For the attacker to fetch the desired theme, an HTTP `GET` request was required. By filtering on just GET requests, there were 5 hits left. 
+It was quickly discovered that the page in question was in fact a WordPress site.  By entering `theme and 404` as a search word, we were left with 16 hits. For the attacker to fetch the desired theme, an HTTP `GET` request was required. By filtering on just `GET` requests, there were left with 5 hits. 
 
 ![image](https://user-images.githubusercontent.com/72946914/151540643-0b794f82-bf29-457c-86bc-e1d63c8dc95b.png)
 
@@ -133,7 +131,7 @@ By expanding one of the five, it was discovered that the compromised theme was *
 
 >*What version of Kibana is the site running?*
 
-Kibana lets you visualize the Elastic search, and uses the KQL syntax language. To find the version number, we searched around Elastic and pressed the button at the top right corner. This tells the version number to be `7.16.2`:
+Kibana lets you visualize the Elastic search, and uses the KQL syntax language. To find the version number, we searched around Elastic and pressed the button at the top right corner. This tells the version number to be 7.16.2:
 
 ![bilde](https://user-images.githubusercontent.com/70077872/150954177-5b57d0e3-dd93-4d85-8cae-b588395799b7.png)
 >**Flag`IKT449{7.16.2}`**
@@ -143,7 +141,7 @@ Kibana lets you visualize the Elastic search, and uses the KQL syntax language. 
 ### Log Count
 >*How many logs are found in the interesting timeframe?*
 
-Looking at the discovery section of Elastic it can be seen that a total of `6788` entries are present when not filtering for anything.
+Looking at the discovery section of Elastic it can be seen that a total of 6788 entries are present when not filtering for anything.
 
 ![LC](https://user-images.githubusercontent.com/59768512/151539880-5cd658fa-688b-4928-b1ef-239d8a83ac12.PNG)
 >**Flag`IKT449{6788}`**
@@ -161,7 +159,7 @@ Expanding the `agent.type` field within Elastic show that in total there are thr
 ### Got Port?
 >*What port is the most commonly requested one in the logs?*
 
-Expanding the `destination.port` field within Elastic shows that the most commonly requested port is port `80`.
+Expanding the `destination.port` field within Elastic shows that the most commonly requested port is port 80.
 
 ![LS](https://user-images.githubusercontent.com/59768512/151539801-1451c88a-1178-4c2a-ae34-f520b53f4d1c.PNG)
 >**Flag`IKT449{80}`**
@@ -182,7 +180,7 @@ Expanding the `HTTP.request.body.content` field of one of these entries shows a 
 
 >*It seems to have occurred a portscan at the start of the attack, how many ports were tested?*
 
-Firstly, we had to find the exact time frame in which the scanning occurred, which was done by looking at the table on the `Discover` page. There is a time frame that stands lonely and separated:
+Firstly, we had to find the exact time frame in which the scanning occurred, which was done by looking at the table on the Discover page. There is a time frame that stands lonely and separated:
 
 ![bilde](https://user-images.githubusercontent.com/70077872/149670992-a3512899-d5be-4cc1-9b4a-79be78e1a922.png)
 
@@ -190,7 +188,7 @@ Secondly, it was important to filter out the port the attacker used to scan with
 
 ![bilde](https://user-images.githubusercontent.com/70077872/150955489-00505b57-87e4-4f6c-b993-5e33ed7539d0.png)
 
-Then, entering this timeframe into the Dashboard, and choosing the specified port, with filtering the unique destination ports (`Unique count of destination.port`) got the result of 100 ports:
+Then, entering this timeframe into the Dashboard, and choosing the specified port, with filtering the unique destination ports (Unique count of destination.port) got the result of 100 ports:
 
 ![bilde](https://user-images.githubusercontent.com/70077872/149670940-425cf730-fad2-467c-8bec-bbb71adcc62e.png)
 
@@ -205,7 +203,7 @@ By searching in Elastic for `http.response.status_code:200 and response:isAdmin`
 
 ![Admin Password](https://user-images.githubusercontent.com/59768512/151539645-a41a5da4-66f4-4923-8bc8-41a1de78115b.PNG)
 
-Expanding this entry we can see that the admin password is `purple1`.
+Expanding this entry we can see that the admin password is *purple1*.
 
 ![Admin Password2](https://user-images.githubusercontent.com/59768512/151539614-6bda64cf-6c50-4811-9c67-4a50b636156b.PNG)
 
@@ -214,7 +212,7 @@ Expanding this entry we can see that the admin password is `purple1`.
 ### User what now?
 >*What was the first user they got access to? (on the machine itself)*
 
-As is found earlier the framework `WordPress` is running on port 80 on the machine, given that the attacker gained access to the webserver framework first it would make sense that landing the victim machine the attacker would initially have access to the user running the web server. Using best practice when setting up a webserver on a Ubuntu platform is to use the `www-data` user. Filtering the logs using `user.name:www-data` shows that several commands have been executed on the machine originally centered around webserver running (running /usr/bin/apache2) and later including commands that set up a more user-friendly environment for further escalation. Therefore the first user the attacker got access to on the machine is `www-data`.
+As is found earlier the framework `WordPress` is running on port 80 on the machine, given that the attacker gained access to the webserver framework first it would make sense that landing the victim machine the attacker would initially have access to the user running the web server. Using best practice when setting up a webserver on a Ubuntu platform is to use the `www-data` user. Filtering the logs using `user.name:www-data` shows that several commands have been executed on the machine originally centered around webserver running (running `/usr/bin/apache2`) and later including commands that set up a more user-friendly environment for further escalation. Therefore the first user the attacker got access to on the machine is `www-data`.
 
 ![U1](https://user-images.githubusercontent.com/59768512/151539551-760f5cf1-220e-4f34-8c32-19d6f0dfbe8f.png)
 >**Flag`IKT449{www-data}`**
@@ -223,7 +221,7 @@ As is found earlier the framework `WordPress` is running on port 80 on the machi
 
 >*At what time did the attacker login to the user: 'user'? (Answer down to the second as: xx:yy:zz)*
 
-To find the correct login time, we had to find a login time in which the auditd.result was a success. Many of the audits before the correct point of time were successfully executed, by the "user" as the primary actor. However, they only got access to "root" as the secondary actor. Therefore, by filtering the times the audit was successful, as well as investigating at which times the user "user" acted as the secondary actor consistently, we were able to find out at which time the login was successful. This first occurred at 00:08:23.248, from which point the logins further consistently returned the audit successful with "user" as the secondary actor". 
+To find the correct login time, we had to find a login time in which the auditd.result was a success. Many of the audits before the correct point of time were successfully executed, by the `user` as the primary actor. However, they only got access to `root` as the secondary actor. Therefore, by filtering the times the audit was successful, as well as investigating at which times the user `user` acted as the secondary actor consistently, we were able to find out at which time the login was successful. This first occurred at 00:08:23.248, from which point the logins further consistently returned the audit successful with `user` as the secondary actor. 
 
 ![image](https://user-images.githubusercontent.com/46780028/150975179-b76b9820-0cae-4c28-9b58-47ea3240e92c.png)
 >**Flag`IKT449{00:08:23}`**
