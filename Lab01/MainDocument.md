@@ -199,7 +199,7 @@ Then, entering this timeframe into the Dashboard, and choosing the specified por
 ### Admin Password
 >*What is the correct password for the admin account?*
 
-By searching in Elastic for `http.response.status_code:200 and response:isAdmin` we can see the entries where the status code for the http response is `200 OK` and where `isAdmin` is set. When a website sends a request and the return status code is `200 OK`, the request is successful. When `isAdmin` is set we know that the admin account is in use. This means that when both of these values are filtered from we know that a successful request has been made and that the account used is the admin account. This filter only gives us one entry:
+By searching in Elastic for `http.response.status_code:200 and response:isAdmin` we can see the entries where the status code for the http response is `200 OK` and where `isAdmin` is set. When a website sends a request and the return status code is `200 OK`, the request is successful. When `isAdmin` is set we know that the admin account is in use. Thus when adding both of these values as filters we will only see entries where we know that a successful request has been made and that the account used is the admin account. This filter only gives us one entry:
 
 
 ![Admin Password](https://user-images.githubusercontent.com/59768512/151539645-a41a5da4-66f4-4923-8bc8-41a1de78115b.PNG)
