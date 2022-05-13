@@ -4,19 +4,6 @@
 > Your target website is not running on the common port 80, can you find
 > the correct one? Submit the flag you find on the site.
 
-In order to scan all ports of the target system, `nmap` together with the target IP has to be utilized. This can be done using the following command: `nmap -Pn -T4 -A -p- 10.225.149.170`. `-Pn` meaning Dont Ping, enables nmap to perform its function regardless if the target is active or not. `-T4` sets the speed of the scan, which scans the ports quickly without omitting important information. `-A` means Agressive Scan, and enables nmap to scan important information like OS, version, script and traceroute. Finally `-p-` specifies that all the ports of the target system should be scanned.
-
-Using the given commands, Nmap scans all the ports of the target system, and confirms that ports `22`, `1337` and `7331` are open. However, it also states that port `1337` is the `Wrong port :)`, and therefore we proceed to the next port. `7331` is the last open port, and it is returning data. This means that the webpage should be located in this last open port.
-
-<img width="749" alt="164413183-b75a837e-0178-47c0-93b5-fd7dfcb6c662" src="https://user-images.githubusercontent.com/46780028/167447678-d76b9015-70f4-4ac6-b4c7-34410ca43583.png">
-
-
-The target webpage is found when the target IP and the correct port number 7331 is entered into the browser (http://10.225.149.170:7331/). On this page, the flag is revealed:
-
-![image](https://user-images.githubusercontent.com/46780028/167448426-1add0bfd-b57a-426d-912a-f53189655ab5.png)
-
->**`Flag: IKT449{check_all_the_ports}`**
-
 
 ## Task 2 -  Web access
 
@@ -82,18 +69,18 @@ We found the flag in `www-data.txt`.
 ## 4 - User
 
 > www-data ? What, the attackers didn't stop there! What in the world
-> has the  _user_  done to get himself pwned as well? Submit the content  of user.txt Would recommend to upgrade to a "good" shell to use nano or vim (guide in canvas)
+> has the  _user_  done to get himself pwned as well? Submit the content  of user.txt Would recommend upgrading to a "good" shell to use nano or vim (guide in canvas)
 
-After we have gained access to `www-data`, it is time to see if we can gain access the first user. Firstly, by going to `/home/user` reveals that there are is a folder called "coding_project". This folder contains a README file, a shell script and a Scripts folder. As the README file states, the user is tired of people asking him/her to run Python files, so the file states: "to avoid further work on my part you can run any file as me instead!". This is a potential vulnerability as files put in the folder `/scripts` is essentially run with the privileges of the user:
+After we have gained access to `www-data`, it is time to see if we can gain access to the first user. Firstly, going to `/home/user` reveals that there is a folder called "coding_project". This folder contains a README file, a shell script, and a Scripts folder. As the README file states, the user is tired of people asking him/her to run Python files, so the file states: "to avoid further work on my part you can run any file as me instead!". This is a potential vulnerability as files put in the folder `/scripts` are essentially run with the privileges of the user:
 
 ![image](https://user-images.githubusercontent.com/70077872/167387362-d4e82870-b257-4335-8acb-e25c97628496.png)
 
 
-The `run_files.sh` is just a script that enter the script folder, runs the file(s) with python3, and removes it afterwards. Here, we can put in a file which is ran as the user to try to gain access to the user account:
+The `run_files.sh` is just a script that enters the script folder, runs the file(s) with python3, and removes it afterward. Here, we can put in a file that is run as the user to try to gain access to the user account:
 
 ![image](https://user-images.githubusercontent.com/70077872/167388008-555a28ea-6279-40cc-841b-08f8c5f108c5.png)
 
-A common attack vector would be to execute a python file that runs a reverse shell back to our machine. Since the script is run with user privileges, the reverse shell will ensure the connection runs with the user; giving us access. To execute this, and to allow python to run bash commands, we use the `os.system()` function which allows us to execute any command. The following code is a one-liner which is able to exploit this vulnerability:
+A common attack vector would be to execute a python file that runs a reverse shell back to our machine. Since the script is run with user privileges, the reverse shell will ensure the connection runs with the user; giving us access. To execute this, and to allow python to run bash commands, we use the `os.system()` function which allows us to execute any command. The following code is a one-liner that can exploit this vulnerability:
 
 ![image](https://user-images.githubusercontent.com/70077872/167413332-dadfb1b2-d2f8-4c73-a4a1-e59d99054a63.png)
 
