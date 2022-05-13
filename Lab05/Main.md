@@ -24,6 +24,8 @@ We can then collect the flag:
 
 ![image](https://user-images.githubusercontent.com/70077872/167413907-7375442e-0738-4ab0-abaf-72f33731a871.png)
 
+>**Flag:`IKT449{not_approved_by_IT}`**
+
 
 ## 5 - Root
 
