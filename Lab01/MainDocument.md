@@ -159,7 +159,7 @@ Expanding the `agent.type` field within Elastic show that in total there are thr
 ### Got Port?
 >*What port is the most commonly requested one in the logs?*
 
-Expanding the `destination.port` field within Elastic shows that the most commonly requested port is port 80.
+Since we want to look at the most commonly requested port in the logs, we expand the `destination.port` field within Elastic since we are looking for the destination port and not the source port. When expanded, it showcases that the most commonly requested port is 80:
 
 ![LS](https://user-images.githubusercontent.com/59768512/151539801-1451c88a-1178-4c2a-ae34-f520b53f4d1c.PNG)
 >**Flag`IKT449{80}`**
@@ -184,11 +184,11 @@ Firstly, we had to find the exact time frame in which the scanning occurred, whi
 
 ![bilde](https://user-images.githubusercontent.com/70077872/149670992-a3512899-d5be-4cc1-9b4a-79be78e1a922.png)
 
-Secondly, it was important to filter out the port the attacker used to scan with. This was done to filter the interesting time frame and filter out the `source.port` that was used for scanning. After filtering, port `55437` is mostly used: 
+Secondly, it was important to filter out the port the attacker used to scan with. This was done to filter the interesting time frame and filter out the `source.port` that was used for scanning. This filter is used because we want to highlight how many ports were tested in the scan, and because a scan is typically run from one port, this filter fits our purpose. After filtering, port `55437` (commonly used in nMap scans) is mostly used: 
 
 ![bilde](https://user-images.githubusercontent.com/70077872/150955489-00505b57-87e4-4f6c-b993-5e33ed7539d0.png)
 
-Then, entering this timeframe into the Dashboard, and choosing the specified port, with filtering the unique destination ports (Unique count of destination.port) got the result of 100 ports:
+Then, entering this timeframe into the Dashboard, and choosing the specified port, with filtering the unique destination ports (`Unique count of destination.port`) got the result of 100 ports:
 
 ![bilde](https://user-images.githubusercontent.com/70077872/149670940-425cf730-fad2-467c-8bec-bbb71adcc62e.png)
 
