@@ -25,10 +25,9 @@ We already knew that we had to use the reverse shell technique to get interactiv
 
 With a quick Google search at "drupal 9 reverse shell" we found several websites explaining the way forward for carrying out this attack. Several Drupal versions are vulnerable to remote code execution due to insecure use of `unserialize()` [(source)](https://vk9-sec.com/drupal-7-x-module-services-remote-code-execution/). One of the sites we found [(link)](https://www.sevenlayers.com/index.php/257-drupal-8-to-reverse-shell) provided us with a well-explained step-by-step guide which we benefitted from. 
 
-The guide describes how one can exploit the use of modules in Drupal by inserting code into a `.module` file. At Drupal's website, we downloaded a random module compatible with Drupal 9, in this case, called *codefiler*. 
+The guide describes how one can exploit the use of modules in Drupal by inserting code into a `.module` file. At Drupal's website, we downloaded a random module compatible with Drupal 9, in this case, called *token*. 
 
-![image](https://user-images.githubusercontent.com/72946914/167477793-47ba477e-a9c9-4883-9b94-d996eb0385b1.png)
-
+![image](https://user-images.githubusercontent.com/70077872/167573879-1302944a-d324-45a6-800e-147cb45be604.png)
 
 After unzipping the module, we added the following code line, with our designated IP address and the desired port number, to the file called `codefilter.module` : 
 
