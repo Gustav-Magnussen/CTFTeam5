@@ -1,5 +1,18 @@
     
+## Task 1- Portable
+
+> Your target website is not running on the common port 80, can you find
+> the correct one? Submit the flag you find on the site.
+
+
 ## Task 2 -  Web access
+
+> With the help of the forensic evidence in Kibana, can you get access
+> to the Drupal admin console?
+> 
+> **DO NOT BRUTEFORCE**
+> 
+> Submit the flag located in your email address after getting in.
 
 We had access to the correct Drupal console but not the correct credentials to enter the admin console. The forensics evidence from Kibana contained over 87,000 hits; thus, some filtering was necessary to narrow the search. First, we thought that a great place to start looking for credentials was in the `http POST request` messages. When a user logs in or tries to log in, an http POST request is sent, and a successful or unsuccessful response is received. Then, after adding the filter `http.request.method: POST` we were left with 19 hits. 
 
@@ -21,14 +34,17 @@ Navigating to the user's profile information, we located the flag.
 
 ## Task 3 - www-data
 
+> Web access was not enough for the attackers!
+> Are you also able to get in interactive access?
+> Flag is in the first directory you land in. Submit the content of www-data.txt
+
 We already knew that we had to use the reverse shell technique to get interactive access to www-data, which could also be seen in the logs from Kibana. By investigating the hits from the previous task, we also saw that the Drupal version running at this site was Drupal 9. 
 
 With a quick Google search at "drupal 9 reverse shell" we found several websites explaining the way forward for carrying out this attack. Several Drupal versions are vulnerable to remote code execution due to insecure use of `unserialize()` [(source)](https://vk9-sec.com/drupal-7-x-module-services-remote-code-execution/). One of the sites we found [(link)](https://www.sevenlayers.com/index.php/257-drupal-8-to-reverse-shell) provided us with a well-explained step-by-step guide which we benefitted from. 
 
-The guide describes how one can exploit the use of modules in Drupal by inserting code into a `.module` file. At Drupal's website, we downloaded a random module compatible with Drupal 9, in this case, called *codefiler*. 
+The guide describes how one can exploit the use of modules in Drupal by inserting code into a `.module` file. At Drupal's website, we downloaded a random module compatible with Drupal 9, in this case, called *token*. 
 
-![image](https://user-images.githubusercontent.com/72946914/167477793-47ba477e-a9c9-4883-9b94-d996eb0385b1.png)
-
+![image](https://user-images.githubusercontent.com/70077872/167573879-1302944a-d324-45a6-800e-147cb45be604.png)
 
 After unzipping the module, we added the following code line, with our designated IP address and the desired port number, to the file called `codefilter.module` : 
 
@@ -50,7 +66,10 @@ We found the flag in `www-data.txt`.
 
 
 
-## 4
+## 4 - User
+
+> www-data ? What, the attackers didn't stop there! What in the world
+> has the  _user_  done to get himself pwned as well? Submit the content  of user.txt Would recommend to upgrade to a "good" shell to use nano or vim (guide in canvas)
 
 After we have gained access to `www-data`, it is time to see if we can gain access the first user. Firstly, by going to `/home/user` reveals that there are is a folder called "coding_project". This folder contains a README file, a shell script and a Scripts folder. As the README file states, the user is tired of people asking him/her to run Python files, so the file states: "to avoid further work on my part you can run any file as me instead!". This is a potential vulnerability as files put in the folder `/scripts` is essentially run with the privileges of the user:
 
